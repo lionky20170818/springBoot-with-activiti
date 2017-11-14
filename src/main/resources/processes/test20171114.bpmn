@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1510300674348" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1510300674348" name="" targetNamespace="http://www.activiti.org/testm1510300674348" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="joinProcess" isClosed="false" isExecutable="true" name="第一个测试流程" processType="None">
+    <startEvent id="Start" name="StartEvent">
+      <extensionElements>
+        <activiti:formProperty id="personId" name="person Id" required="true" type="long"/>
+        <activiti:formProperty id="compId" name="company Id" required="true" type="long"/>
+      </extensionElements>
+    </startEvent>
+    <endEvent id="End" name="EndEvent"/>
+    <userTask activiti:candidateUsers="${joinService.findUsers(execution)}" activiti:exclusive="false" id="ApprovalTask" name="领导审批">
+      <extensionElements>
+        <activiti:formProperty id="joinApproved" name="joinApproved" type="enum">
+          <activiti:value id="true" name="Approve"/>
+          <activiti:value id="false" name="Reject"/>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="_5" name="Flow1" sourceRef="Start" targetRef="ApprovalTask"/>
+    <serviceTask activiti:exclusive="true" activiti:expression="${joinService.joinGroup(execution)}" id="AutoTask" name="AutoTask"/>
+    <sequenceFlow id="_9" name="Flow2" sourceRef="ApprovalTask" targetRef="AutoTask"/>
+    <sequenceFlow id="_2" name="Flow3" sourceRef="AutoTask" targetRef="End"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#3C3F41;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="joinProcess">
+      <bpmndi:BPMNShape bpmnElement="Start" id="Shape-Start">
+        <dc:Bounds height="32.0" width="32.0" x="20.0" y="200.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="End" id="Shape-End">
+        <dc:Bounds height="32.0" width="32.0" x="205.0" y="400.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="ApprovalTask" id="Shape-ApprovalTask">
+        <dc:Bounds height="55.0" width="85.0" x="170.0" y="190.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="AutoTask" id="Shape-AutoTask">
+        <dc:Bounds height="55.0" width="85.0" x="180.0" y="290.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_2" id="BPMNEdge__2" sourceElement="AutoTask" targetElement="End">
+        <di:waypoint x="221.0" y="345.0"/>
+        <di:waypoint x="221.0" y="400.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_5" id="BPMNEdge__5" sourceElement="Start" targetElement="ApprovalTask">
+        <di:waypoint x="52.0" y="216.0"/>
+        <di:waypoint x="170.0" y="217.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9" sourceElement="ApprovalTask" targetElement="AutoTask">
+        <di:waypoint x="217.5" y="245.0"/>
+        <di:waypoint x="217.5" y="290.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
