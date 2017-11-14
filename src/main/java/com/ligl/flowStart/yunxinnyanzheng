@@ -1,0 +1,35 @@
+1，启动程序，自动加载表和初始化流程数据
+2，查看流程定义和流程资源	ACT_GE_BYTEARRAY：如图pg1
+3，查看compy和person:如图pg2
+4，      我们当前模拟一个简单的工作流程，某人想加入某个公司，[对应流程：test20171114.bpmn]
+            然后有权限审批的人审批，审批同意后将此人加入组织并输出“加入组织成功”，不同意输出“加入组织失败”。
+    4.1，此时我们要加入的公司compId=为1，申请加入的人的personId=2，使用PostMan访问
+            http://localhost:8888/process/2/1 此时数据库发生如下变化：如图pg3
+    4.2，此时用户admin和wtr具备审批申请的权利(如图pg4)，此时我们访问
+            http://localhost:8888/tasks?assignee=admin 查看admin用户的任务，返回结果为：如图pg5
+    4.3，我们现在通过访问http://localhost:8888/complete/true/12513 完成任务，true为同意(可以选择false)，12513为task的id，
+            任务完成后会自动调用Service Task，此时wyf这条记录的comp_compId为更新为当前公司的id。如图pg6
+
+
+
+附：涉及的数据库表
+
+ACT_GE_* : “GE”代表“General”（通用），用在各种情况下；
+ACT_HI_* : “HI”代表“History”（历史），这些表中保存的都是历史数据
+ACT_ID_* : “ID”代表“Identity”（身份），这些表中保存的都是身份信息，如用户和组以及两者之间的关系。可以直接使用现有系统中的用户或组信息
+ACT_RE_* : “RE”代表“Repository”（仓库），这些表中保存一些‘静态’信息，如流程定义和流程资源（如图片、规则等）；
+ACT_RU_* : “RU”代表“Runtime”（运行时），这些表中保存一些流程实例、用户任务、变量等的运行时数据。Activiti只保存流程实例在执行过程中的运行时数据，并且当流程结束后会立即移除这些数据，这是为了保证运行时表尽量的小并运行的足够快；
+
+--通用的流程定义和流程资源
+SELECT * FROM `ACT_GE_BYTEARRAY`;
+--历史流程
+SELECT * FROM ACT_HI_ACTINST;
+--历史的流程运行过程中用户关系,权限
+SELECT * FROM ACT_HI_IDENTITYLINK;
+--已部署的流程定义
+SELECT * FROM ACT_RE_PROCDEF;
+--运行时任务
+SELECT * FROM `ACT_RU_TASK`;
+--运行时用户关系信息,流程结束即删除
+SELECT * FROM `ACT_RU_IDENTITYLINK` WHERE TASK_ID_ = '12513';
+
