@@ -35,8 +35,8 @@
 					var pos = string.search(/[ \t\n\f-\.\,]/);
 					if (pos == -1)
 						break;
-					
-					// whitespace start
+
+                    // whitespace f_start
 					fullPos += pos;
 					string = string.substr(pos);
 					////console.log("fullPos: " + fullPos + ", pos: " + pos +  ", string: ", string);
@@ -140,8 +140,8 @@
 
 			};
 			TextMeasurer.prototype = {
-				getLineBreakIndex: function(start, maxAdvance){
-					var localStart = start - this.fStart;
+             getLineBreakIndex: function(f_start, maxAdvance){
+             var localStart = f_start - this.fStart;
 				},
 				getLayout: function(){
 				}
@@ -378,8 +378,8 @@
 			for (var i=0; i<1; i++) {
 				var t = text;
 				//var t = "Высококвалифицирова";
-				
-				var text = paper.text(300, 100, t).attr(font).attr("text-anchor", "start");
+
+             var text = paper.text(300, 100, t).attr(font).attr("text-anchor", "f_start");
 				var bbText = text.getBBox();
 				paper.rect(300+.5, 100 + .5, bbText.width, bbText.height).attr({"stroke-width": 1});
 				console.log("t: ", t.replace(/\n/g, "↵"));

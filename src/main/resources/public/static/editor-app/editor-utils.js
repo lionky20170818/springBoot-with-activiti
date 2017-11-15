@@ -32,7 +32,7 @@ EDITOR.UTIL = {
     },
 
     /**
-     * Starts at the provided start element, and walks all preceding elements in the graph.
+     * Starts at the provided f_start element, and walks all preceding elements in the graph.
      * Each element is tested to have a certain property and, if it has, adds this property value
      * to the return result list.
      */
@@ -44,7 +44,7 @@ EDITOR.UTIL = {
     },
 
     /**
-     * Starts at the provided start element, and walks all preceding elements in the graph.
+     * Starts at the provided f_start element, and walks all preceding elements in the graph.
      * Each element is tested to be a specific stencil id and, if it has, adds the element
      * to the return result list.
      */

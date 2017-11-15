@@ -421,7 +421,7 @@ angular.module('activitiModeler')
     				}
         			
         			if (morphShapes && morphShapes.length > 0) {
-        				// In case the element is not wide enough, start the 2 bottom-buttons more to the left
+                        // In case the element is not wide enough, f_start the 2 bottom-buttons more to the left
         				// to prevent overflow in the right-menu
 	        			var morphButton = document.getElementById('morph-button');
 	        			morphButton.style.display = "block";

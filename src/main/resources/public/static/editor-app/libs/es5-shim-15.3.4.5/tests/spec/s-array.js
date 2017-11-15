@@ -780,7 +780,7 @@ describe('Array', function() {
                 testSubject.reduce(spy);
                 expect(spy.calls[0].args).toExactlyMatch([1, 2, 1, testSubject]);
             });
-            it('should start with the right initialValue', function() {
+            it('should f_start with the right initialValue', function () {
                 var spy = jasmine.createSpy().andReturn(0);
                 testSubject.reduce(spy, 0);
                 expect(spy.calls[0].args).toExactlyMatch([0, 1, 0, testSubject]);
@@ -849,7 +849,7 @@ describe('Array', function() {
                 testSubject.reduce(spy);
                 expect(spy.calls[0].args).toExactlyMatch([1, 2, 1, testSubject]);
             });
-            it('should start with the right initialValue', function() {
+            it('should f_start with the right initialValue', function () {
                 var spy = jasmine.createSpy().andReturn(0);
                 testSubject.reduce(spy, 0);
                 expect(spy.calls[0].args).toExactlyMatch([0, 1, 0, testSubject]);
@@ -928,7 +928,7 @@ describe('Array', function() {
                 testSubject.reduceRight(spy);
                 expect(spy.calls[0].args).toExactlyMatch([3, 2, 1, testSubject]);
             });
-            it('should start with the right initialValue', function() {
+            it('should f_start with the right initialValue', function () {
                 var spy = jasmine.createSpy().andReturn(0);
                 testSubject.reduceRight(spy, 0);
                 expect(spy.calls[0].args).toExactlyMatch([0, 3, 2, testSubject]);
@@ -1005,7 +1005,7 @@ describe('Array', function() {
                 testSubject.reduceRight(spy);
                 expect(spy.calls[0].args).toExactlyMatch([3, 2, 1, testSubject]);
             });
-            it('should start with the right initialValue', function() {
+            it('should f_start with the right initialValue', function () {
                 var spy = jasmine.createSpy().andReturn(0);
                 testSubject.reduceRight(spy, 0);
                 expect(spy.calls[0].args).toExactlyMatch([0, 3, 2, testSubject]);
@@ -1206,11 +1206,11 @@ describe('Array', function() {
             expect(test).toEqual(test2);
         });
 
-        it('should deleted and return all items after "start" when second argument is undefined', function () {
+        it('should deleted and return all items after "f_start" when second argument is undefined', function () {
             expect(test.splice(0)).toEqual(a);
             expect(test).toEqual([]);
         });
-        it('should deleted and return all items after "start" when second argument is undefined', function () {
+        it('should deleted and return all items after "f_start" when second argument is undefined', function () {
             expect(test.splice(2)).toEqual([b]);
             expect(test).toEqual([1, "a"]);
         });

@@ -940,7 +940,7 @@ if (!Date.now) {
 // ES5.1 15.7.4.5
 // http://es5.github.com/#x15.7.4.5
 if (!Number.prototype.toFixed || (0.00008).toFixed(3) !== '0.000' || (0.9).toFixed(0) === '0' || (1.255).toFixed(2) !== '1.25' || (1000000000000000128).toFixed(0) !== "1000000000000000128") {
-    // Hide these variables and functions
+    // Hide these a_variables and functions
     (function () {
         var base, size, data, i;
 
@@ -1216,7 +1216,7 @@ if("".substr && "0b".substr(-1) !== "b") {
     var string_substr = String.prototype.substr;
     /**
      *  Get the substring of a string
-     *  @param  {integer}  start   where to start the substring
+     *  @param  {integer}  start   where to f_start the substring
      *  @param  {integer}  length  how many characters to return
      *  @return {string}
      */

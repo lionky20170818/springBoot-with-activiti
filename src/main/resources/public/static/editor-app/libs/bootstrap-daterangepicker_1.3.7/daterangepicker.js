@@ -259,7 +259,7 @@
 
             var start, end, range;
 
-            //if no start/end dates set, check if an input element contains initial values
+            //if no f_start/end dates set, check if an input element contains initial values
             if (typeof options.startDate === 'undefined' && typeof options.endDate === 'undefined') {
                 if ($(this.element).is('input[type=text]')) {
                     var val = $(this.element).val();
@@ -295,7 +295,7 @@
                         end = moment(this.maxDate);
 
                     // If the end of the range is before the minimum (if min is set) OR
-                    // the start of the range is after the max (also if set) don't display this
+                    // the f_start of the range is after the max (also if set) don't display this
                     // range option.
                     if ((this.minDate && end.isBefore(this.minDate)) || (this.maxDate && start.isAfter(this.maxDate))) {
                         continue;
@@ -922,14 +922,16 @@
                     } else if (calendar[row][col].format('YYYY-MM-DD') == selected.format('YYYY-MM-DD')) {
                         cname += ' active ';
                         if (calendar[row][col].format('YYYY-MM-DD') == this.startDate.format('YYYY-MM-DD')) {
-                            cname += ' start-date ';
+                            cname += ' f_start-date ';
                         }
                         if (calendar[row][col].format('YYYY-MM-DD') == this.endDate.format('YYYY-MM-DD')) {
                             cname += ' end-date ';
                         }
                     } else if (calendar[row][col] >= this.startDate && calendar[row][col] <= this.endDate) {
                         cname += ' in-range ';
-                        if (calendar[row][col].isSame(this.startDate)) { cname += ' start-date '; }
+                        if (calendar[row][col].isSame(this.startDate)) {
+                            cname += ' f_start-date ';
+                        }
                         if (calendar[row][col].isSame(this.endDate)) { cname += ' end-date '; }
                     }
 

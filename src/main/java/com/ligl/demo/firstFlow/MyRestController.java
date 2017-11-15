@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Function:流程调用入口
+ * Function:自建表进行流程处理和角色控制
  * Author: created by liguoliang
  * Date: 2017/11/13 0013 下午 5:53
  * Version: 1.0
@@ -19,10 +19,10 @@ public class MyRestController {
     private ActivitiService myService;
 
     //开启流程实例，入口
-    @GetMapping("/process/{personId}/{compId}")
+    @GetMapping("/process/{personId}/{compId}/{processId}")
 //    @RequestMapping(value="/process/{personId}/{compId}", method= RequestMethod.GET)
-    public String startProcessInstance(@PathVariable Long personId, @PathVariable Long compId){
-        myService.startProcess(personId,compId);
+    public String startProcessInstance(@PathVariable Long personId, @PathVariable Long compId, @PathVariable String processId) {
+        myService.startProcess(personId, compId, processId);
         return "SUCCESS";
     }
 

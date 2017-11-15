@@ -31,7 +31,7 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
  *
  * // Use like so:
  * htmlParser(htmlString, {
- *     start: function(tag, attrs, unary) {},
+ *     f_start: function(tag, attrs, unary) {},
  *     end: function(tag) {},
  *     chars: function(text) {},
  *     comment: function(text) {}
@@ -213,7 +213,7 @@ var validAttrs = angular.extend({}, uriAttrs, makeMap(
     'abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,'+
     'color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,'+
     'ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,'+
-    'scope,scrolling,shape,size,span,start,summary,target,title,type,'+
+    'scope,scrolling,shape,size,span,f_start,summary,target,title,type,' +
     'valign,value,vspace,width'));
 
 function makeMap(str) {
@@ -226,7 +226,7 @@ function makeMap(str) {
 /**
  * @example
  * htmlParser(htmlString, {
- *     start: function(tag, attrs, unary) {},
+ *     f_start: function(tag, attrs, unary) {},
  *     end: function(tag) {},
  *     chars: function(text) {},
  *     comment: function(text) {}
@@ -273,7 +273,7 @@ function htmlParser( html, handler ) {
           chars = false;
         }
 
-      // start tag
+          // f_start tag
       } else if ( BEGIN_TAG_REGEXP.test(html) ) {
         match = html.match( START_TAG_REGEXP );
 
@@ -377,7 +377,7 @@ var spaceRe = /^(\s*)([\s\S]*?)(\s*)$/;
 function decodeEntities(value) {
   if (!value) { return ''; }
 
-  // Note: IE8 does not preserve spaces at the start/end of innerHTML
+    // Note: IE8 does not preserve spaces at the f_start/end of innerHTML
   // so we must capture them and reattach them afterward
   var parts = spaceRe.exec(value);
   var spaceBefore = parts[1];
@@ -416,7 +416,7 @@ function encodeEntities(value) {
  * create an HTML/XML writer which writes to buffer
  * @param {Array} buf use buf.jain('') to get out sanitized html string
  * @returns {object} in the form of {
- *     start: function(tag, attrs, unary) {},
+ *     f_start: function(tag, attrs, unary) {},
  *     end: function(tag) {},
  *     chars: function(text) {},
  *     comment: function(text) {}

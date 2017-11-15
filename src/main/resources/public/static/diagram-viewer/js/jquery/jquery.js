@@ -124,7 +124,7 @@ jQuery.fn = jQuery.prototype = {
 		if ( typeof selector === "string" ) {
 			// Are we dealing with HTML string or an ID?
 			if ( selector.charAt(0) === "<" && selector.charAt( selector.length - 1 ) === ">" && selector.length >= 3 ) {
-				// Assume that strings that start and end with <> are HTML and skip the regex check
+                // Assume that strings that f_start and end with <> are HTML and skip the regex check
 				match = [ null, selector, null ];
 
 			} else {
@@ -3159,7 +3159,7 @@ jQuery.event = {
 
 				// Call a native DOM method on the target with the same name name as the event.
 				// Can't use an .isFunction() check here because IE6/7 fails that test.
-				// Don't do default actions on window, that's where global variables be (#6170)
+                // Don't do default actions on window, that's where global a_variables be (#6170)
 				// IE<9 dies on focus/blur to hidden element (#1486)
 				if ( ontype && elem[ type ] && ((type !== "focus" && type !== "blur") || event.target.offsetWidth !== 0) && !jQuery.isWindow( elem ) ) {
 
@@ -3895,8 +3895,8 @@ var Sizzle = function( selector, context, results, seed ) {
 		contextXML = Sizzle.isXML( context ),
 		parts = [],
 		soFar = selector;
-	
-	// Reset the position of the chunker regexp (start from head)
+
+    // Reset the position of the chunker regexp (f_start from head)
 	do {
 		chunker.exec( "" );
 		m = chunker.exec( soFar );
@@ -6856,14 +6856,14 @@ var r20 = /%20/g,
 	 *    - AFTER param serialization (s.data is a string if s.processData is true)
 	 * 3) key is the dataType
 	 * 4) the catchall symbol "*" can be used
-	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
+     * 5) execution will f_start with transport dataType and THEN continue down to "*" if needed
 	 */
 	prefilters = {},
 
 	/* Transports bindings
 	 * 1) key is the dataType
 	 * 2) the catchall symbol "*" can be used
-	 * 3) selection will start with transport dataType and THEN go to "*" if needed
+     * 3) selection will f_start with transport dataType and THEN go to "*" if needed
 	 */
 	transports = {},
 
@@ -8519,7 +8519,7 @@ jQuery.fn.extend({
 				}
 			}
 
-			// start the next in the queue if the last step wasn't forced
+            // f_start the next in the queue if the last step wasn't forced
 			// timers currently will call their complete callbacks, which will dequeue
 			// but only if they were gotoEnd
 			if ( !( gotoEnd && hadTimers ) ) {
@@ -8682,7 +8682,7 @@ jQuery.fx.prototype = {
 		this.options.show = true;
 
 		// Begin the animation
-		// Make sure that we start at a small width/height to avoid any flash of content
+        // Make sure that we f_start at a small width/height to avoid any flash of content
 		if ( dataShow !== undefined ) {
 			// This show is picking up where a previous hide or show left off
 			this.custom( this.cur(), dataShow );

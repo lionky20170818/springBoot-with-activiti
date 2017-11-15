@@ -31,8 +31,8 @@
 					var pos = string.search(/[ \t\n\f-\.\,]/);
 					if (pos == -1)
 						break;
-					
-					// whitespace start
+
+                    // whitespace f_start
 					fullPos += pos;
 					string = string.substr(pos);
 					////console.log("fullPos: " + fullPos + ", pos: " + pos +  ", string: ", string);

@@ -1317,7 +1317,7 @@ ProcessDiagramCanvas.prototype = {
 	},
 	
 	drawAnnotationText: function(text, x, y, width, height){
-		//this._drawMultilineText(text, x, y, width, height, "start");
+        //this._drawMultilineText(text, x, y, width, height, "f_start");
 		
 		var originalPaint = this.getPaint();
 		var originalFont = this.getFont();
@@ -1332,7 +1332,7 @@ ProcessDiagramCanvas.prototype = {
 	},
 	
 	drawLabel: function(text, x, y, width, height){
-		//this._drawMultilineText(text, x, y, width, height, "start");
+        //this._drawMultilineText(text, x, y, width, height, "f_start");
 		
 		var originalPaint = this.getPaint();
 		var originalFont = this.getFont();
@@ -2029,7 +2029,7 @@ ProcessDiagramCanvas.prototype = {
 		measurer.rafaelTextObject.attr({"text": layouts.join("\n")});
 		
 		if (horizontalAlign)
-			measurer.rafaelTextObject.attr({"text-anchor": horizontalAlign}); // end, middle, start
+            measurer.rafaelTextObject.attr({"text-anchor": horizontalAlign}); // end, middle, f_start
 			
 		var bb = measurer.rafaelTextObject.getBBox();
 		// TODO: there is somethin wrong with wertical align. May be: measurer.rafaelTextObject.attr({"y": y + height/2 - bb.height/2})

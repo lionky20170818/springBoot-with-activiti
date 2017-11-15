@@ -352,7 +352,7 @@ jasmine.Spy.prototype.andCallFake = function(fakeFunc) {
 };
 
 /**
- * Resets all of a spy's the tracking variables so that it can be used again.
+ * Resets all of a spy's the tracking a_variables so that it can be used again.
  *
  * @example
  * spyOn(foo, 'bar');

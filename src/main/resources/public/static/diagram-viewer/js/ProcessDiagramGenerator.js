@@ -17,7 +17,7 @@ var ProcessDiagramGenerator = {
 	diagramBreadCrumbs: null,
 	
 	init: function(){
-		// start event
+        // f_start event
 		this.activityDrawInstructions["startEvent"] = function(){
 			var activityImpl = this.activity;
 			var processDiagramCanvas = this.processDiagramCanvas;
@@ -25,8 +25,8 @@ var ProcessDiagramGenerator = {
 			
 			processDiagramCanvas.drawNoneStartEvent(activityImpl.getX(), activityImpl.getY(), activityImpl.getWidth(), activityImpl.getHeight());
 		};
-		
-		// start timer event
+
+        // f_start timer event
 		this.activityDrawInstructions["startTimerEvent"] = function(){
 			var activityImpl = this.activity;
 			var processDiagramCanvas = this.processDiagramCanvas;
@@ -35,8 +35,8 @@ var ProcessDiagramGenerator = {
 			var isInterrupting = activityImpl.getProperty("isInterrupting");
 			processDiagramCanvas.drawTimerStartEvent(activityImpl.getX(), activityImpl.getY(), activityImpl.getWidth(), activityImpl.getHeight(), isInterrupting, activityImpl.getProperty("name"));
 		};
-		
-		// start event
+
+        // f_start event
 		this.activityDrawInstructions["messageStartEvent"] = function(){
 			var activityImpl = this.activity;
 			var processDiagramCanvas = this.processDiagramCanvas;
@@ -45,8 +45,8 @@ var ProcessDiagramGenerator = {
 			var isInterrupting = activityImpl.getProperty("isInterrupting");
 			processDiagramCanvas.drawMessageStartEvent(activityImpl.getX(), activityImpl.getY(), activityImpl.getWidth(), activityImpl.getHeight(), isInterrupting, activityImpl.getProperty("name"));
 		};
-		
-		// start signal event
+
+        // f_start signal event
 		this.activityDrawInstructions["startSignalEvent"] = function(){
 			var activityImpl = this.activity;
 			var processDiagramCanvas = this.processDiagramCanvas;
@@ -55,8 +55,8 @@ var ProcessDiagramGenerator = {
 			var isInterrupting = activityImpl.getProperty("isInterrupting");
 			processDiagramCanvas.drawSignalStartEvent(activityImpl.getX(), activityImpl.getY(), activityImpl.getWidth(), activityImpl.getHeight(), isInterrupting, activityImpl.getProperty("name"));
 		};
-		
-		// start multiple event
+
+        // f_start multiple event
 		this.activityDrawInstructions["startMultipleEvent"] = function(){
 			var activityImpl = this.activity;
 			var processDiagramCanvas = this.processDiagramCanvas;
@@ -235,8 +235,8 @@ var ProcessDiagramGenerator = {
       if (label)
         processDiagramCanvas.drawLabel(label.text, label.x, label.y, label.width, label.height);
 		};
-		
-		// error start event
+
+        // error f_start event
 		this.activityDrawInstructions["errorStartEvent"] = function(){
 			var activityImpl = this.activity;
 			var processDiagramCanvas = this.processDiagramCanvas;

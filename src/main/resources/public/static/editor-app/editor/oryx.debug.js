@@ -941,7 +941,7 @@ var DataManager = {
 			if(ignore)
 				return '';
 
-			// start serialization.
+            // f_start serialization.
 			
 			var result = '<' + node.nodeName;
 			
@@ -1830,7 +1830,7 @@ if(!ORYX) var ORYX = {};
 if(!ORYX.CONFIG) ORYX.CONFIG = {};
 
 /**
- * Signavio specific variables
+ * Signavio specific a_variables
  */
 ORYX.CONFIG.BACKEND_SWITCH 		= 		true;
 ORYX.CONFIG.PANEL_LEFT_WIDTH 	= 		250;
@@ -1921,7 +1921,7 @@ ORYX.CONFIG.TYPE_FORM_LINK =			"formlink";
 ORYX.CONFIG.TYPE_SUB_PROCESS_LINK =		"subprocesslink";
 ORYX.CONFIG.TYPE_SERVICE_LINK =			"servicelink";
 ORYX.CONFIG.TYPE_CONDITIONS =			"conditions";
-ORYX.CONFIG.TYPE_VARIABLES = 			"variables";
+ORYX.CONFIG.TYPE_VARIABLES = "a_variables";
 ORYX.CONFIG.TYPE_LISTENER =				"listener";
 ORYX.CONFIG.TYPE_EPC_FREQ = 			"epcfrequency";
 ORYX.CONFIG.TYPE_GLOSSARY_LINK =		"glossarylink";
@@ -3356,7 +3356,7 @@ ORYX.Core.SVG.PointsPathHandler = Clazz.extend({
 
 /**
  *
- * Config variables
+ * Config a_variables
  */
 NAMESPACE_ORYX = "http://www.b3mn.org/oryx";
 NAMESPACE_SVG = "http://www.w3.org/2000/svg/";
@@ -3549,7 +3549,7 @@ ORYX.Core.SVG.SVGMarker = Clazz.extend({
 
 /**
  *
- * Config variables
+ * Config a_variables
  */
 NAMESPACE_ORYX = "http://www.b3mn.org/oryx";
 NAMESPACE_SVG = "http://www.w3.org/2000/svg/";
@@ -3977,8 +3977,8 @@ ORYX.Core.SVG.SVGShape = Clazz.extend({
 			this.oldWidth = this.width;
 			this.oldHeight = this.height;
 		}
-		
-		// Remove cached variables
+
+        // Remove cached a_variables
 		delete this.visible;
 		delete this.handler;
 	},
@@ -6299,7 +6299,7 @@ ORYX.Core.StencilSet.Property = Clazz.extend({
             else {
                 throw "ORYX.Core.StencilSet.Property(construct): No property items defined."
             }
-            // extended by Kerstin (start)
+            // extended by Kerstin (f_start)
         }
         else 
             if (jsonProp.type === ORYX.CONFIG.TYPE_COMPLEX || jsonProp.type == ORYX.CONFIG.TYPE_MULTIPLECOMPLEX) {
@@ -15438,9 +15438,9 @@ ORYX.Core.Edge = {
 			
 			this._oldBounds = this.bounds.clone();
         }
-		
-		
-  	    // IE10 specific fix, start and end-markes get left behind when moving path
+
+
+        // IE10 specific fix, f_start and end-markes get left behind when moving path
 		var userAgent = navigator.userAgent;
 		if (navigator.appVersion.indexOf("MSIE 10") !== -1 || (userAgent.indexOf('Trident') !== -1 && userAgent.indexOf('rv:11') !== -1)) 
 		{
@@ -15624,7 +15624,7 @@ ORYX.Core.Edge = {
 	 * line defined by docker1 and docker2.
 	 * 
 	 * @param {point} docker1
-	 * 		The docker that defines the start of the line segment
+     *        The docker that defines the f_start of the line segment
 	 * @param {point} docker2
 	 * 		The docker that defines the end of the line segment
 	 * @param {ORYX.Core.Node} node
@@ -16102,7 +16102,7 @@ ORYX.Core.Edge = {
 		
 		this.attachedNodePositionData.each(function(nodePositionData) {
 			if(nodePositionData.value.segment.docker1 === docker) {
-				/* The new start of the segment is the predecessor of docker2. */
+                /* The new f_start of the segment is the predecessor of docker2. */
 				var index = this.dockers.indexOf(nodePositionData.value.segment.docker2);
 				if(index == -1) {return;}
 				nodePositionData.value.segment.docker1 = this.dockers[index - 1];
@@ -16324,14 +16324,14 @@ ORYX.Core.Edge = {
                 
                 //check, if markers are set and update the id
                 var markersByThisPath = [];
-                var markerUrl = path.getAttributeNS(null, "marker-start");
+                var markerUrl = path.getAttributeNS(null, "marker-f_start");
                 
                 if (markerUrl && markerUrl !== "") {
                     markerUrl = markerUrl.strip();
                     markerUrl = markerUrl.replace(/^url\(#/, '');
                     
                     var markerStartId = this.getValidMarkerId(markerUrl);
-                    path.setAttributeNS(null, "marker-start", "url(#" + markerStartId + ")");
+                    path.setAttributeNS(null, "marker-f_start", "url(#" + markerStartId + ")");
                     
                     markersByThisPath.push(this._markers[markerStartId]);
                 }
@@ -17454,7 +17454,7 @@ ORYX.Plugins.AbstractLayouter = ORYX.Plugins.AbstractPlugin.extend({
 	},
 	
 	/**
-	 * Callback to start the layouting
+     * Callback to f_start the layouting
 	 * @param {Object} event Layout event
 	 * @param {Object} shapes Given shapes
      * @memberOf ORYX.Plugins.AbstractLayouter.prototype
@@ -19528,7 +19528,7 @@ ORYX.Plugins.DragDropResize = ORYX.Plugins.AbstractPlugin.extend({
 	construct: function(facade) {
 		this.facade = facade;
 
-		// Initialize variables
+        // Initialize a_variables
 		this.currentShapes 		= [];			// Current selected Shapes
 		//this.pluginsData 		= [];			// Available Plugins
 		this.toMoveShapes 		= [];			// Shapes there will be moved
@@ -19567,13 +19567,13 @@ ORYX.Plugins.DragDropResize = ORYX.Plugins.AbstractPlugin.extend({
 		this.resizerSE = new ORYX.Plugins.Resizer(containerNode, "southeast", this.facade);
 		this.resizerSE.registerOnResize(this.onResize.bind(this)); // register the resize callback
 		this.resizerSE.registerOnResizeEnd(this.onResizeEnd.bind(this)); // register the resize end callback
-		this.resizerSE.registerOnResizeStart(this.onResizeStart.bind(this)); // register the resize start callback
+        this.resizerSE.registerOnResizeStart(this.onResizeStart.bind(this)); // register the resize f_start callback
 		
 		// Create the northwestern button for resizing
 		this.resizerNW = new ORYX.Plugins.Resizer(containerNode, "northwest", this.facade);
 		this.resizerNW.registerOnResize(this.onResize.bind(this)); // register the resize callback
 		this.resizerNW.registerOnResizeEnd(this.onResizeEnd.bind(this)); // register the resize end callback
-		this.resizerNW.registerOnResizeStart(this.onResizeStart.bind(this)); // register the resize start callback
+        this.resizerNW.registerOnResizeStart(this.onResizeStart.bind(this)); // register the resize f_start callback
 		
 		// For the Drag and Drop
 		// Register on MouseDown-Event on a Shape
@@ -20219,8 +20219,8 @@ ORYX.Plugins.DragDropResize = ORYX.Plugins.AbstractPlugin.extend({
 	 */
 	onSelectionChanged: function(event) {
 		var elements = event.elements;
-		
-		// Reset the drag-variables
+
+        // Reset the drag-a_variables
 		this.dragEnable = false;
 		this.dragIntialized = false;
 		this.resizerSE.hide();
@@ -20228,7 +20228,7 @@ ORYX.Plugins.DragDropResize = ORYX.Plugins.AbstractPlugin.extend({
 
 		// If there is no elements
 		if(!elements || elements.length == 0) {
-			// Hide all things and reset all variables
+            // Hide all things and reset all a_variables
 			this.selectedRect.hide();
 			this.currentShapes = [];
 			this.toMoveShapes = [];
@@ -21253,7 +21253,7 @@ ORYX.Plugins.DragDocker = Clazz.extend({
 	            }
 				
 				if(this.docker.isDocked()) {
-					/* Only consider start/end dockers if they are moved over a treshold */
+                    /* Only consider f_start/end dockers if they are moved over a treshold */
 					var distanceDockerPointer = 
 						ORYX.Core.Math.getDistancePointToPoint(evPos, this.initialDockerPosition);
 					if(distanceDockerPointer < this.undockTreshold) {
@@ -21306,13 +21306,13 @@ ORYX.Plugins.DragDocker = Clazz.extend({
 								this.isValid = this.facade.getRules().canConnect({
 											sourceShape: this.dockerSource ? // Is there a docked source 
 															this.dockerSource : // than set this
-															(this.isStartDocker ? // if not and if the Docker is the start docker
+                                                (this.isStartDocker ? // if not and if the Docker is the f_start docker
 																uiObj : // take the last uiObj
 																undefined), // if not set it to undefined;
 											edgeShape: this.docker.parent,
 											targetShape: this.dockerTarget ? // Is there a docked target 
 											this.dockerTarget : // than set this
-														(this.isEndDocker ? // if not and if the Docker is not the start docker
+                                                (this.isEndDocker ? // if not and if the Docker is not the f_start docker
 															uiObj : // take the last uiObj
 															undefined) // if not set it to undefined;
 										});
@@ -21540,8 +21540,8 @@ ORYX.Plugins.DragDocker = Clazz.extend({
 	
 		// Update all Shapes
 		//this.facade.updateSelection();
-			
-		// Undefined all variables
+
+        // Undefined all a_variables
 		this.docker 		= undefined;
 		this.dockerParent   = undefined;
 		this.dockerSource 	= undefined;
@@ -21749,7 +21749,7 @@ if(!ORYX.Plugins)
 		this.facade.registerOnEvent(ORYX.CONFIG.EVENT_MOUSEDOWN, this.handleMouseDown.bind(this));
 		document.documentElement.addEventListener(ORYX.CONFIG.EVENT_MOUSEUP, this.handleMouseUp.bind(this), true);
 
-		// Some initiale variables
+        // Some initiale a_variables
 		this.position 		= {x:0, y:0};
 		this.size 			= {width:0, height:0};
 		this.offsetPosition = {x: 0, y: 0};
@@ -23057,8 +23057,8 @@ new function(){
 		},
 		
 		/**
-		 * Removes all current dockers from the node 
-		 * (except the start and end) and adds two new
+		 * Removes all current dockers from the node
+         * (except the f_start and end) and adds two new
 		 * dockers, on the position a and b.
 		 * @param {Object} edge
 		 * @param {Object} a
@@ -23068,7 +23068,7 @@ new function(){
 			if (!edge){ return }
 			
 			// Remove all dockers (implicit,
-			// start and end dockers will not removed)
+            // f_start and end dockers will not removed)
 			edge.dockers.each(function(r){
 				edge.removeDocker(r);
 			});

@@ -388,7 +388,7 @@ activitiModeler
             $rootScope.addAlert = function(message, type) {
                 var newAlert = {message: message, type: type};
                 if (!$rootScope.alerts.timeout) {
-                    // Timeout for message queue is not running, start one
+                    // Timeout for message queue is not running, f_start one
                     $rootScope.alerts.queue.push(newAlert);
                     $rootScope.showAlert($rootScope.alerts);
                 } else {
