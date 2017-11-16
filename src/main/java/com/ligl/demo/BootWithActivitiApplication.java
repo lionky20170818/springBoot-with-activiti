@@ -20,6 +20,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  http://blog.csdn.net/chq1988/article/details/75699792			ACTIVITI加入数据库
  http://blog.csdn.net/hj7jay/article/details/51302829   		ACTIVITI涉及的表介绍
  http://doc.okbase.net/wiselyman/archive/209439.html			整合实战
+ 创建Spring Data JPA实例对象
+ <jpa:repositories base-package="yitian.study.dao"/>
  */
 
 @SpringBootApplication
@@ -27,6 +29,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan({"org.activiti.rest.diagram", "com.ligl.demo"})//扫描组建
 @EntityScan("com.ligl.demo.firstFlow") //entity对应的包路径
 @EnableJpaRepositories(basePackages={"com.ligl.demo.firstFlow"})//dao层对应的包路径
+//<jpa:repositories base-package="yitian.study.dao"/> 创建Spring Data JPA实例对象
 //@EnableAutoConfiguration()  //启用自动配置 该框架就能够进行行为的配置，以引导应用程序的启动与运行, 根据导入的starter-pom 自动加载配置
 @EnableAutoConfiguration(exclude = {
 		org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class,

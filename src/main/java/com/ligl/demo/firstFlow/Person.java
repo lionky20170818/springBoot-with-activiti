@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
 public class Person {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue//数据库自增
     private Long personId;
 
     private String personName;
