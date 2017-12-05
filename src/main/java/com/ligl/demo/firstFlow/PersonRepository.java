@@ -15,6 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface PersonRepository extends JpaRepository<Person, Long> {
     public Person findByPersonName(String personName);
 
-//    @Query(value = "select b from ACT_RU_TASK b where b.NAME_ = :personName")
+//    @Query("from ACT_RU_TASK b where b.NAME_ = :personName")
 //    Person withPersonName(@Param("personName") String personName);
 }

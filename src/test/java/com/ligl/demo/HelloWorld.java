@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+/**
+ * 也可使用REST实例自动流程设置，参照：http://www.mossle.com/docs/activiti/index.html#N15324
+ * 导入REST架包即可
+ */
 public class HelloWorld extends OverFlowTest {
 
     @Autowired
